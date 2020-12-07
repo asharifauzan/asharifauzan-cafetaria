@@ -77,10 +77,10 @@ function displayClient() {
   if( liff.isInClient() ){
     statusClient = "You are using LINE in-app browser.";
   } else {
-    // isClient && isLoggedIn
+    // !isClient && isLoggedIn
     if( liff.isLoggedIn() ){
       document.getElementById('account').classList.add('visible');
-      document.getElementById('account').classList.remove('visible');
+      document.getElementById('line-login').classList.remove('visible');
     }
     statusClient = "⚠️ You are using external browser, move to LINE in-app browser to use full feautures."
   }
