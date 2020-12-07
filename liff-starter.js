@@ -89,6 +89,7 @@ function displayClient() {
 
 function displayUser(){
   if( liff.isLoggedIn() ){
+    console.log(liff.getProfile());
     document.getElementsByClassName('greeting')[0].innerHTML = `Hallo ${liff.getProfile().displayName}, selamat datang di AshariFauzan-gopud. Ayo belanja`;
   }
 }
@@ -109,4 +110,8 @@ function handleLogout(){
       window.location.reload();
     }
   });
+}
+
+function sendAlertIfNotInClient() {
+    alert('Fitur ini hanya tersedia di LINE in-app browser.');
 }
