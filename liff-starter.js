@@ -89,12 +89,10 @@ function displayClient() {
 
 function displayUser(){
   if( liff.isLoggedIn() ){
-    // console.log(liff.getProfile());
-    // document.getElementsByClassName('greeting')[0].innerHTML = `Hallo ${liff.getProfile().displayName}, selamat datang di AshariFauzan-gopud. Ayo belanja`;
     liff.getProfile()
       .then(profile => {
-        const name = profile.displayName
-        alert(name);
+        document.getElementsByClassName('greeting')[0].innerHTML = `Hallo ${profile.displayName}, selamat datang di AshariFauzan-gopud. Ayo belanja`;
+        document.querySelector('#account > img').src = profile.pictureUrl;
       })
       .catch((err) => {
         console.log('error', err);

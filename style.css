@@ -38,10 +38,9 @@ header nav {
   header nav #account {
     position: relative;
     display: none;
-    align-items: center;
-    border-radius: 50%;
-    overflow: hidden; }
+    align-items: center; }
     header nav #account img {
+      border-radius: 50%;
       width: 40px;
       height: 40px; }
     header nav #account ul {
