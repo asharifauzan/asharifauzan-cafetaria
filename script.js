@@ -105,7 +105,7 @@ function displayOrder(orderDetail, totalPrice){
 
 function sendMessages(orderDetail){
   if (!liff.isInClient()) {
-      sendAlertIfNotInClient();
+      sendAlertIfNotInClient('send message');
   } else {
     let msg = `Hai pengunjung,
     kamu telah order

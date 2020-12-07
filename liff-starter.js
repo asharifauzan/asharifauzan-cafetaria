@@ -125,6 +125,9 @@ function toggleAccount(){
   });
 }
 
-function sendAlertIfNotInClient() {
-    alert('Fitur ini hanya tersedia di LINE in-app browser.');
+function sendAlertIfNotInClient(feature) {
+  document.getElementById('error-client').innerHTML = `
+  <h1>Error</h1>
+  <p>⚠️ Fitur ${feature} hanya tersedia di LINE in-app browser.</p>`;
+
 }
