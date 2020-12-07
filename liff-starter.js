@@ -63,6 +63,8 @@ function initializeApp() {
     }
     displayStatus();
     displayClient();
+    handleLogout();
+    displayUser();
 }
 
 function displayStatus() {
@@ -85,19 +87,26 @@ function displayClient() {
   document.getElementById('status-client').innerHTML = statusClient;
 }
 
+function displayUser(){
+  if( liff.isLoggedIn() ){
+    document.getElementsByClassName('greeting')[0].innerHTML = `Hallo ${liff.getProfile().displayName}, selamat datang di AshariFauzan-gopud. Ayo belanja`;
+  }
+}
+
 // handle user login
-document.getElementById('line-login')
-.addEventListener('click', function() {
+function handleLogin() {
   if( !liff.isLoggedIn() ){
     liff.login();
   }
-});
+};
 
 // handle user logout
-document.getElementById('line-logout')
-.addEventListener('click', function(){
-  if( liff.isLoggedIn() ){
-    liff.logout();
-    window.location.reload();
-  }
-});
+function handleLogout(){
+  document.getElementById('line-logout')
+  .addEventListener('click', function(){
+    if( liff.isLoggedIn() ){
+      liff.logout();
+      window.location.reload();
+    }
+  });
+}

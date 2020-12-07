@@ -11,7 +11,7 @@
   <header>
     <nav>
       <h1 class="nav-title">AshariFauzan-Gopud</h1>
-      <button type="button" id="line-login" class="btn visible">Login</button>
+      <button type="button" class="line-login" class="btn visible" onclick="handleLogin()">Login</button>
       <div id="account">
         <img src="" alt="">
         <ul>
@@ -24,10 +24,10 @@
     <section class="login-wrapper">
       <p>Anda belum login, untuk dapat memesan makanan & minuman
       Anda harus login terlebih dahulu</p>
-      <button id="first-login" class="btn">Login</button>
+      <button id="first-login" class="btn" onclick="handleLogin()">Login</button>
     </section>
 
-    <h1>Hallo {user}, selamat datang di AshariFauzan-gopud. Ayo belanja</h1>
+    <h1 class="greeting"></h1>
     <section id="wrapper">
       <article id="left-wrapper">
         <div class="card makanan">
