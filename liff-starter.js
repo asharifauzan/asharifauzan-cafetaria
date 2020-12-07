@@ -57,14 +57,14 @@ function initializeLiff(myLiffId) {
  */
 function initializeApp() {
 // memastikan user login setiap membuka aplikasi
-    if( liff.isLoggedIn() ){
+    // if( liff.isLoggedIn() ){
       document.getElementsByClassName('login-wrapper')[0]
       .classList.add('hide');
-    }
+    // }
     displayStatus();
     displayClient();
-    handleLogout();
     displayUser();
+    toggleAccount();
 }
 
 function displayStatus() {
@@ -78,10 +78,10 @@ function displayClient() {
     statusClient = "You are using LINE in-app browser.";
   } else {
     // !isClient && isLoggedIn
-    if( liff.isLoggedIn() ){
+    // if( liff.isLoggedIn() ){
       document.getElementById('account').classList.add('visible');
       document.getElementById('line-login').classList.remove('visible');
-    }
+    // }
     statusClient = "⚠️ You are using external browser, move to LINE in-app browser to use full feautures."
   }
   document.getElementById('status-client').innerHTML = statusClient;
@@ -89,8 +89,16 @@ function displayClient() {
 
 function displayUser(){
   if( liff.isLoggedIn() ){
-    console.log(liff.getProfile());
-    document.getElementsByClassName('greeting')[0].innerHTML = `Hallo ${liff.getProfile().displayName}, selamat datang di AshariFauzan-gopud. Ayo belanja`;
+    // console.log(liff.getProfile());
+    // document.getElementsByClassName('greeting')[0].innerHTML = `Hallo ${liff.getProfile().displayName}, selamat datang di AshariFauzan-gopud. Ayo belanja`;
+    liff.getProfile()
+      .then(profile => {
+        const name = profile.displayName
+        alert(name);
+      })
+      .catch((err) => {
+        console.log('error', err);
+      });
   }
 }
 
@@ -109,6 +117,13 @@ function handleLogout(){
       liff.logout();
       window.location.reload();
     }
+  });
+}
+
+function toggleAccount(){
+  document.querySelector('#account > img')
+  .addEventListener('click', function(){
+    document.querySelector('#account > ul').classList.toggle('visible');
   });
 }
 

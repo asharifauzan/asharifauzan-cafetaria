@@ -37,15 +37,22 @@ header {
       position: relative;
       display: none;
       align-items: center;
+      border-radius: 50%;
+      overflow: hidden;
       img {
         width: 40px;
         height: 40px;
       }
       ul {
         position: absolute;
+        display: none;
         width: max-content;
-        top: 0;
+        top: 100%;
         list-style: none;
+        background: #ddd;
+        color: #131313;
+        padding: 5px;
+        box-sizing: border-box;
       }
     }
   }
