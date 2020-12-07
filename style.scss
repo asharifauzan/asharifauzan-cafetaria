@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: #131313;
+  color: #eee;
+}
+
+.btn {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  background: #00B900;
+  cursor: pointer;
+  color: #eee;
+  &:hover {background: lighten(#00B900, 20%);}
+}
+
+.hide {
+  visibility: hidden !important;
+}
+
+header {
+  nav {
+    background: red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10vw;
+    .visible {display: flex !important;}
+    h1.nav-title {color: blue;}
+    #line-login {display: none; padding: 0.7em 2em; text-transform: uppercase; font-weight: 500;}
+    #account {
+      position: relative;
+      display: none;
+      align-items: center;
+      img {
+        width: 40px;
+        height: 40px;
+      }
+      ul {
+        position: absolute;
+        width: max-content;
+        top: 0;
+        list-style: none;
+      }
+    }
+  }
+}
+
+main {
+  .login-wrapper {    
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: white;
+    color: black;
+  }
+  margin: 0 auto;
+  padding: 50px 10vw;
+  section#wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 50px 0 0;
+    article {
+      max-width: 550px;
+      width: 45%;
+      > div{
+        &:not(last-of-type) {margin-bottom: 30px;}
+      }
+    }
+    article#left-wrapper {
+      div.card {
+        h1.card-title {
+          text-align: center;
+          font-size: 24px;
+          background: red;
+        }
+        div.menu {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          div.counter {
+            display: flex;
+            p{padding: 5px 10px;}
+            button.minus{
+              &:hover{background: lighten(#B90000, 20%)}
+              background: #B90000;
+            }
+          }
+        }
+      }
+      button#order {width: 100%; padding: 0.7em 0}
+    }
+
+    article#right-wrapper {
+      background: #eee;
+      color: #131313;
+      border-radius: 12px;
+      box-sizing: border-box;
+      padding: 20px;
+      height: max-content;
+      ul {list-style: none}
+    }
+  }
+}
+
+footer {
+  background: blue;
+}

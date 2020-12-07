@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>Aplikasi Gopud</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <h1 class="nav-title">AshariFauzan-Gopud</h1>
+      <button type="button" id="line-login" class="btn visible">Login</button>
+      <div id="account">
+        <img src="" alt="">
+        <ul>
+          <li id="line-logout">Log Out</li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="login-wrapper">
+      <p>Anda belum login, untuk dapat memesan makanan & minuman
+      Anda harus login terlebih dahulu</p>
+      <button id="first-login" class="btn">Login</button>
+    </section>
+
+    <h1>Hallo {user}, selamat datang di AshariFauzan-gopud. Ayo belanja</h1>
+    <section id="wrapper">
+      <article id="left-wrapper">
+        <div class="card makanan">
+          <h1 class="card-title">Makanan</h1>
+        </div>
+        <div class="card minuman">
+          <h1 class="card-title">Minuman</h1>
+        </div>
+        <button type="button" class="btn" id="order">Order</button>
+      </article>
+
+      <article id='right-wrapper'>
+        <div class="line-status">
+          <h1>LINE Status</h1>
+          <ul>
+            <li id="isClient">App Line: </li>
+            <li id="isLogin">Is Login: </li>
+          </ul>
+          <p id="status-client"></p>
+        </div>
+        <div id="order-status"></div>
+      </article>
+    </section>
+  </main>
+  <footer>
+  </footer>
+  <script src="liff-starter.js"></script>
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
