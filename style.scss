@@ -25,13 +25,12 @@ html {
 
 header {
   nav {
-    background: red;
+    background: linear-gradient(235deg, orange, deeppink);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 10vw;
     .visible {display: flex !important;}
-    h1.nav-title {color: blue;}
     #line-login {display: none; padding: 0.7em 2em; text-transform: uppercase; font-weight: 500;}
     #account {
       position: relative;
@@ -87,7 +86,7 @@ main {
         h1.card-title {
           text-align: center;
           font-size: 24px;
-          background: red;
+          background: linear-gradient(235deg, orange, deeppink);
         }
         div.menu {
           display: flex;
@@ -120,4 +119,14 @@ main {
 
 footer {
   background: blue;
+}
+
+@media (min-width: 0px) and (max-width: 550px){
+  main{
+    section#wrapper{
+      flex-direction: column;
+      article{width: 100%}
+      article#left-wrapper{margin-bottom: 50px;}
+    }
+  }
 }
