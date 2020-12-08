@@ -74,7 +74,7 @@ function setQuantity() {
   }
 }
 
-function orderDetail() {
+function setOrder() {
   document.getElementById('order')
   .addEventListener('click', function(){
     let totalPrice = 0;
@@ -107,9 +107,10 @@ function sendMessages(orderDetail, totalPrice){
   if (!liff.isInClient()) {
       alert("sent message only works in LINE in-app browser.")
   } else {
+    let msg = getOrderList(orderDetail, totalPrice);
     liff.sendMessages([{
         'type': 'text',
-        'text': orderDetail(totalPrice)
+        'text': msg
     }]).then(function() {
         alert('Pesan terkirim');
     }).catch(function(error) {
@@ -118,15 +119,15 @@ function sendMessages(orderDetail, totalPrice){
   }
 }
 
-function getOrderList(totalPrice){
+function getOrderList(orderDetail, totalPrice){
   let msg = "Hai, we are preparing your orders.\n\n";
-  for(let i=0; i < order.length; i++){
-    msg += order[i] + "\n";
+  for(let i=0; i < orderDetail.length; i++){
+    msg += orderDetail[i];
   }
-  msg += `Total Price: Rp. ${totalPrice}`;
+  msg += `\nTotal Price: Rp. ${totalPrice}`;
   return msg;
 }
 
 loadMenu();
 setQuantity();
-orderDetail();
+setOrder();
