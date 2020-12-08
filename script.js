@@ -105,7 +105,7 @@ function displayOrder(orderDetail, totalPrice){
 
 function sendMessages(orderDetail, totalPrice){
   if (!liff.isInClient()) {
-      sendAlertIfNotInClient('send message');
+      alert("sent message only works in LINE in-app browser.")
   } else {
     liff.sendMessages([{
         'type': 'text',
