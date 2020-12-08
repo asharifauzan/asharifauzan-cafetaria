@@ -84,7 +84,7 @@ function orderDetail() {
     });
     if (totalPrice > 0) {
       displayOrder(orderDetail, totalPrice);
-      sendMessages(orderDetail);
+      sendMessages(orderDetail, totalPrice);
     }
   });
 }
@@ -103,24 +103,28 @@ function displayOrder(orderDetail, totalPrice){
   orderWrapper.classList.remove('hide');
 }
 
-function sendMessages(orderDetail){
+function sendMessages(orderDetail, totalPrice){
   if (!liff.isInClient()) {
       sendAlertIfNotInClient('send message');
   } else {
-    let msg = `Hai pengunjung,
-    kamu telah order
-    ${orderDetail}
-    akan kami siapkan ya
-    `;
     liff.sendMessages([{
         'type': 'text',
-        'text': msg
+        'text': orderDetail(totalPrice)
     }]).then(function() {
         alert('Pesan terkirim');
     }).catch(function(error) {
         alert('Aduh kok error ya...');
     });
   }
+}
+
+getOrderList(totalPrice){
+  let msg = "Hai, we are preparing your orders.\n\n";
+  for(let i=0; i < order.length; i++){
+    msg += order[i] + "\n";
+  }
+  msg += `Total Price: Rp. ${totalPrice}`;
+  return msg;
 }
 
 loadMenu();
