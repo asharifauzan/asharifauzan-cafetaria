@@ -92,7 +92,7 @@ function setOrder() {
 // display order list & total price
 function displayOrder(orderDetail, totalPrice){
   let orderWrapper = document.getElementById('order-status');
-  let orderTitle = "<h3>Here are your order</h3>";
+  let orderTitle = "<h1>Here are your order</h1>";
   let orderList = '<ul>';
   for(let i = 0; i < orderDetail.length; i++) {
     orderList += `<li>${orderDetail[i]}</li>`;

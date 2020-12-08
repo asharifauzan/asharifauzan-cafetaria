@@ -56,7 +56,7 @@ function initializeLiff(myLiffId) {
  * Initialize the app by calling functions handling individual app components
  */
 function initializeApp() {
-// not loged in user will stuck in login page
+    // not loged in user will stuck in login page
     if( !liff.isLoggedIn() ){
       showLogin();
     }
@@ -65,6 +65,7 @@ function initializeApp() {
     displayClient();
     displayUser();
     toggleAccount();
+    displayControl();
 }
 
 function setWrapper(isLogin){
@@ -146,8 +147,20 @@ function toggleAccount(){
   });
 }
 
-function sendAlertIfNotInClient(feature) {
-  document.getElementById('error-client').innerHTML = `
-  <h1>Error</h1>
-  <p>⚠️ Fitur ${feature} hanya tersedia di LINE in-app browser.</p>`;
+function displayControl() {
+  if( liff.isInClient() ){
+    document.getElementById('control-client').innerHTML = `
+    <h1>Control</h1>
+    <button onclick="handleExternalBrowser()">Open in External Browser</button>`;
+  }
+}
+
+function handleExternalBrowser(){
+  document.getElementById('open-external')
+  .addEventListener('click', function(){
+    liff.openWindow({
+        url: 'https://liff-gopud.herokuapp.com/',
+        external: true
+    });
+  });
 }
