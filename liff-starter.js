@@ -132,7 +132,7 @@ function handleLogout(){
 function toggleAccount(){
   document.querySelector('#account > img')
   .addEventListener('click', function(){
-    document.querySelector('#account > ul').classList.toggle('visible');
+    document.querySelector('#account > ul').classList.toggle('blank');
   });
 }
 
