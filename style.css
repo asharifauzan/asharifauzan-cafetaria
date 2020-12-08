@@ -38,7 +38,7 @@ header nav {
     font-weight: 500; }
   header nav #account {
     position: relative;
-    display: none;
+    display: block;
     align-items: center; }
     header nav #account img {
       border-radius: 50%;
