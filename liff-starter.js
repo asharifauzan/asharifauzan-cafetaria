@@ -57,14 +57,24 @@ function initializeLiff(myLiffId) {
  */
 function initializeApp() {
 // not loged in user will stuck in login page
-    if( liff.isLoggedIn() ){
-      displayStatus();
-      displayClient();
-      displayUser();
-      toggleAccount();
-    } else {
+    if( !liff.isLoggedIn() ){
       showLogin();
     }
+    setWrapper( liff.isLoggedIn() );
+    displayStatus();
+    displayClient();
+    displayUser();
+    toggleAccount();
+}
+
+function setWrapper(isLogin){
+  if(isLogin){
+    document.getElementById('wrapper')
+    .classList.remove('blank');
+  } else {
+    document.getElementById('wrapper')
+    .classList.add('blank');
+  }
 }
 
 // show login page (if not loged in)
@@ -140,5 +150,4 @@ function sendAlertIfNotInClient(feature) {
   document.getElementById('error-client').innerHTML = `
   <h1>Error</h1>
   <p>⚠️ Fitur ${feature} hanya tersedia di LINE in-app browser.</p>`;
-
 }
