@@ -56,37 +56,48 @@ function initializeLiff(myLiffId) {
  * Initialize the app by calling functions handling individual app components
  */
 function initializeApp() {
-// memastikan user login setiap membuka aplikasi
-    // if( liff.isLoggedIn() ){
-      document.getElementsByClassName('login-wrapper')[0]
-      .classList.add('hide');
-    // }
-    displayStatus();
-    displayClient();
-    displayUser();
-    toggleAccount();
+// not loged in user will stuck in login page
+    if( liff.isLoggedIn() ){
+      displayStatus();
+      displayClient();
+      displayUser();
+      toggleAccount();
+    } else {
+      showLogin();
+    }
 }
 
+// show login page (if not loged in)
+function showLogin(){
+  document.querySelector('.login-wrapper > h1').innerHTML = 'AshariFauzan-Cafetaria';
+  document.querySelector('.login-wrapper > p').innerHTML = 'Hai, you need to login first to use this app.';
+  document.getElementsByClassName('login-wrapper')[0]
+  .classList.remove('blank');
+}
+
+// status liff
 function displayStatus() {
   document.getElementById('isClient').innerHTML += `<b>${liff.isInClient()}</b>`;
   document.getElementById('isLogin').innerHTML += `<b>${liff.isLoggedIn()}</b>`;
 }
 
+// user uses in-app browser or not
 function displayClient() {
   let statusClient;
   if( liff.isInClient() ){
     statusClient = "You are using LINE in-app browser.";
   } else {
     // !isClient && isLoggedIn
-    // if( liff.isLoggedIn() ){
+    if( liff.isLoggedIn() ){
       document.getElementById('account').classList.add('visible');
       document.getElementById('line-login').classList.remove('visible');
-    // }
+    }
     statusClient = "⚠️ You are using external browser, move to LINE in-app browser to use full feautures."
   }
   document.getElementById('status-client').innerHTML = statusClient;
 }
 
+// display name and picture user
 function displayUser(){
   if( liff.isLoggedIn() ){
     liff.getProfile()

@@ -123,7 +123,6 @@ function sendMessages(orderDetail){
   }
 }
 
-
 loadMenu();
 setQuantity();
 orderDetail();

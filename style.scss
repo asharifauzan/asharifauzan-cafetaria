@@ -19,9 +19,8 @@ html {
   &:hover {background: lighten(#00B900, 20%);}
 }
 
-.hide {
-  visibility: hidden !important;
-}
+.hide {visibility: hidden !important;}
+.blank {display: none !important; height: 0px !important; width: 0px !important}
 
 header {
   nav {
@@ -30,7 +29,6 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 10vw;
-    .visible {display: flex !important;}
     #line-login {display: none; padding: 0.7em 2em; text-transform: uppercase; font-weight: 500;}
     #account {
       position: relative;
@@ -58,7 +56,11 @@ header {
 
 main {
   .login-wrapper {
-    display: block;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 20vh;
+    box-sizing: border-box;
     position: absolute;
     top: 0;
     right: 0;
@@ -66,6 +68,13 @@ main {
     bottom: 0;
     background: white;
     color: black;
+    transition: 1s ease;
+    button{
+      margin-top: 20px;
+      width: 75%;
+      max-width: 300px;
+      padding: 1em 0;
+    }
   }
   margin: 0 auto;
   padding: 50px 10vw;
