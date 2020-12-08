@@ -103,7 +103,7 @@ function displayClient() {
       document.getElementById('account').classList.add('visible');
       document.getElementById('line-login').classList.remove('visible');
     }
-    statusClient = "⚠️ You are using external browser, move to LINE in-app browser to use full feautures."
+    statusClient = "⚠️ You are using external browser, move to LINE in-app browser to use full features."
   }
   document.getElementById('status-client').innerHTML = statusClient;
 }
@@ -113,7 +113,7 @@ function displayUser(){
   if( liff.isLoggedIn() ){
     liff.getProfile()
       .then(profile => {
-        document.getElementsByClassName('greeting')[0].innerHTML = `Hallo ${profile.displayName}, selamat datang di AshariFauzan-gopud. Ayo belanja`;
+        document.getElementsByClassName('greeting')[0].innerHTML = `Hallo ${profile.displayName}, selamat datang di AshariFauzan-Cafetaria. Ayo belanja`;
         document.querySelector('#account > img').src = profile.pictureUrl;
       })
       .catch((err) => {
