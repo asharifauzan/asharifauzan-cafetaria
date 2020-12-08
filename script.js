@@ -118,7 +118,7 @@ function sendMessages(orderDetail, totalPrice){
   }
 }
 
-getOrderList(totalPrice){
+function getOrderList(totalPrice){
   let msg = "Hai, we are preparing your orders.\n\n";
   for(let i=0; i < order.length; i++){
     msg += order[i] + "\n";
