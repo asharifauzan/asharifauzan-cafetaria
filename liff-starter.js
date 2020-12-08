@@ -159,7 +159,7 @@ function handleExternalBrowser(){
   document.getElementById('open-external')
   .addEventListener('click', function(){
     liff.openWindow({
-        url: 'https://liff-gopud.herokuapp.com/',
+        url: 'https://asharifauzan-cafetaria.herokuapp.com/',
         external: true
     });
   });
