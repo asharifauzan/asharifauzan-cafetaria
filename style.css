@@ -38,7 +38,7 @@ header nav {
     font-weight: 500; }
   header nav #account {
     position: relative;
-    display: block;
+    display: flex;
     align-items: center; }
     header nav #account img {
       border-radius: 50%;
@@ -52,7 +52,8 @@ header nav {
       background: #ddd;
       color: #131313;
       padding: 5px;
-      box-sizing: border-box; }
+      box-sizing: border-box;
+      cursor: pointer; }
 
 main {
   margin: 0 auto;
